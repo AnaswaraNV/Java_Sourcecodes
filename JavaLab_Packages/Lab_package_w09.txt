@@ -1,0 +1,103 @@
+Creating Java Packages
+
+Lab Exercise 1A 
+
+Scenario: Create the package in the working directory.
+
+1. Download three Java source files and put them in 
+   your working directory(e.g. c:\temp).
+   	- PackageDemo.java, May.java, August.java.
+
+2. a) Inspect May.java and August.java. What is the package name?
+
+   b) Inspect PackageDemo.java. What is the package name?
+
+
+3. Create a subfolder with the name "seneca."
+
+4. Under the "seneca" subfolder, create another subfolder with the 
+   name "summer2004."
+
+5. Move May.java and August.java into the "summer2004" subfolder.
+
+6. How do you compile PackageDemo.java?
+
+   (Hint: Read the comments at the end of the source file.)
+
+7. Inspect the "summer2004" subfolder. 
+   Do you find class files there?
+
+8. How do you run PackageDemo.class?
+
+
+Lab Exercise 1B 
+
+Scenario: Create the package in another directory (e.g. c:\elsewhere).
+
+1. Create a directory such as c:\elsewhere.
+
+2. Creat the package in this directory. (Repeat steps 1 to 4 in Lab Exercise 1A.)
+
+3. Go to your working directory(e.g. c:\temp) where you have PackageDemo.java.
+
+4. How do you compile and run PackageDemo.java?
+   (Hint: Read the comments at the end of the source file.)
+
+
+Lab Exercise 2 
+
+Scenario: PackageDemo.java is packaged with May.java and August.java.
+
+0. Select your root directory for the package "seneca.summer2004" (e.g. c:\elsewhere or c:\temp).
+
+1. Comment out the statement "import seneca.summer2004.*;" 
+   in PackageDemo.java.
+
+2. Insert the statement "package seneca.summer2004;" at the
+   beginning of PackageDemo.java.
+
+3. Where are you going to put PackageDemo.java?
+
+4. Try the following 2 commands:
+
+	javac   ./seneca/summer2004/PackageDemo.java
+
+    java    seneca.summer2004.PackageDemo
+      	
+      	
+Lab Exercise 3A(if you have time)
+
+Scenario: Create three packages with these classes:
+	     lab3.testing.PackageDemo, opensource.seneca.January, 
+	     seneca.summer2004.May, seneca.summer2004.August.
+	     
+
+1. Modify the lab3.testing.PackageDemo class such that its toString method will invoke the toString methods
+   from opensource.seneca.January, seneca.summer2004.May and seneca.summer2004.August. 
+   (Note: Do not forget to create the opensource.seneca.January class.)
+   
+2. Select your working directory such as c:\temp.
+
+3. Put all three packages in the working directory.
+
+4. How do you compile and run lab3.testing.PackageDemo in the working directory?
+   (Note: The lab3.testing.PackageDemo class has the main method.)
+   
+
+5. Make a contribution to the wiki by sharing your answer with the community. 
+   You may upload a screenshot to the wiki.
+
+Lab Exercise 3B(if you have time)
+
+1. Change your working directory (e.g. c:\temp\testjava)
+   such that it is not the root directory for the packages.
+
+2. How do you compile and run lab3.testing.PackageDemo in the working directory?
+
+C:\Temp>java -classpath c:\elsewhere lab3.testing.PackageDemo
+javac -classpath c:\com\seneca\f2017\data edu.jav745.f2017.client.BankingClient.java
+
+
+
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD> <META NAME="Generator" CONTENT="KEYpak V5.1"> 
+	 <TITLE>C:\Program Files\HoTMetaL PRO 6\gifs\TextPad .htm</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="#FFFF99"> 
+	 <H2>gJava and TextPad configuration</H2> 
+	 <H3>Java configuration check</H3>
+	 <P>Many computers already have a Java runtime version installed. It is OK
+		to install the SDK over top of it. The SDK contains the same things as the
+		runtime plus additional stuff. It is also OK to install the SDK over a previous
+		version. Java is not like Microsoft with its DLL hell. The later version of
+		Java will always run the earlier version without any trouble.</P>
+	 <P>In a professional development environment, you may have the five
+		different versions (1.0 to 1.4) separately installed for testing and various
+		other reasons. For our purposes, the Java 1.2 SDK or later is sufficient.</P> 
+	 <UL><LH><B>After installing the Java SDK (download it from Sun), check if
+		there is a PATH to the Java commands...</B></LH> 
+		<LI> open a Command Prompt window and enter the command:</LI> 
+		<LI>C:\&gt; <B>java -version</B> 
+		  <UL> 
+			 <LI>if the system can find the program, it should respond with
+				something like:<BR>java version "1.4.0_01" <BR>Java(TM) 2 Runtime Environment,
+				Standard Edition (build 1.4.0_01-b03)</LI> 
+		  </UL></LI> 
+		<LI>try C:\&gt; <B>javac </B>&nbsp;&nbsp;&nbsp;as well</LI> 
+		<LI>the C:\&gt; <B>path </B>&nbsp;&nbsp;&nbsp;command will show where the
+		  system is looking for the java?.exe programs 
+		  <UL> 
+			 <LI>...<B>\j2sdk1.4.0_01\bin</B>; (corresponding to the version you
+				installed) should be listed amoung the directories</LI> 
+		  </UL></LI> 
+		<LI>if you cannot remember where or if Java was installed, open a Command
+		  Prompt window and enter the command:</LI> 
+		<LI>C:\&gt;<B>dir java.exe /s</B></LI> 
+		<LI>do the same for the <B>javac.exe</B> file</LI> 
+	 </UL> 
+	 <UL><LH><B>Redefine the Windows path variable so it can find Java</B></LH> 
+		<LI>Control Panel/System/Advanced tab/Environment Variables button. (menu
+		  directions based on Windows 2000)</LI> 
+		<LI>Edit/Add the User <B><I>or</I></B> System Variable: PATH</LI> 
+		<LI>to contain the value: <B>C:\Program Files\Java\j2sdk1.4.0_01\bin</B>
+		  or <B>C:\Program Files\Java\j2re1.4.0_01\bin</B> (if the runtime was installed
+		  first and you installed the SDK over top of it) or wherever your Java SDK was
+		  installed plus the "\bin" directory.</LI> 
+		<LI>You may need to reboot Windows for the System Variable to take effect
+		  (but you are used to rebooting Windows, aren't you?)</LI> 
+	 </UL> 
+	 <H3>System can find Java but Java cannot find your .java or .class
+		files</H3> 
+	 <P>Depending on the history of Java packages installed on your PC, Windows
+		may be using a CLASSPATH environment variable which tells Java where to look
+		for .java and .class files.</P> 
+	 <UL><LH>check if CLASSPATH is set...</LH> 
+		<LI> open a Command Prompt window and enter the command:</LI> 
+		<LI>C:\&gt; <B>set classpath </B>&nbsp;&nbsp;&nbsp;and see what you get.
+		  </LI> 
+		<LI>If there is something there, Java will use it. You may or may not
+		  want to put your .java or .class files along that path.</LI>
+		<LI>If there is no classpath environment variable, Java will look in the
+		  current directory.</LI> 
+	 </UL> 
+	 <H3>Fix Option 1</H3> 
+	 <UL><LH><B>Redefine the Windows classpath variable...</B></LH> 
+		<LI>Control Panel/System/Advanced tab/Environment Variables button. (menu
+		  directions based on Windows 2000)
+		  <UL>
+			 <LI>Edit/Add the <B><I>User</I></B> Variable: CLASSPATH </LI> 
+			 <LI>to contain the value: <B>.\;%CLASSPATH%</B> </LI> 
+			 <LI>i.e. put the current directory before any System classpath.</LI>
+		  </UL></LI>
+		<LI>Windows 98
+		  <UL>
+			 <LI>you may have to modify your AutoExec.bat file:<BR>SET CLASSPATH
+				&nbsp;.\;%CLASSPATH%</LI>
+		  </UL></LI> 
+	 </UL> 
+	 <H3>Fix Option 2</H3> 
+	 <UL><LH> <B>Modify TextPad... </B></LH> 
+		<LI>TextPad menu: Configure / Preferences and expand Tools </LI> 
+		<LI>click Compile Java 
+		  <UL> 
+			 <LI>change its Parameters to: &nbsp;-classpath&nbsp; <B>.</B>
+				&nbsp;$File<BR>and the Initial folder should be: &nbsp;$FileDir</LI> 
+		  </UL></LI> 
+		<LI>click Run Java Application 
+		  <UL> 
+			 <LI>change its Parameters to: &nbsp;-classpath&nbsp; <B>.</B>
+				&nbsp;$BaseName<BR>and the Initial folder should be: &nbsp;$FileDir</LI> 
+		  </UL></LI> 
+		<LI>"-classpath . " is a javac/java command line parameter which
+		  overrides the CLASSPATH Environment Variable to the current directory for the
+		  running of that command </LI> 
+	 </UL> </BODY>
+</HTML>
