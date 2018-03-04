@@ -1,0 +1,12 @@
+--Package definition
+create or replace PACKAGE P_SECURITY AS
+ FUNCTION F_SECURITY(
+ P_SECID IN SECURITY.SEC_ID%TYPE,
+ P_SECPASSWORD IN SECURITY.SEC_PASSWORD%TYPE)
+ RETURN NUMBER;
+ 
+ -Procedure to pass emp_id as input and return the cursor info.
+ PROCEDURE P_EMP_INFO (
+ P_EMPLOYEEID IN EMPLOYEES.EMPLOYEE_ID%TYPE,
+ p_info OUT cur_EmpInfo);
+END P_SECURITY;

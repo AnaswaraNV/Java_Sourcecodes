@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+<class>
+   <student sid="010393027">
+      <firstname>Kevin</firstname>
+      <lastname>Smith</lastname>
+	  <program>DAD</program>
+      <gpa>3.8</gpa>
+   </student>
+   <student sid="048013060">
+      <firstname>Bill</firstname>
+      <lastname>Petel</lastname>
+	  <program>BSD</program>
+      <gpa>3.9</gpa>
+   </student>
+   <student sid="111386212">
+      <firstname>Steven</firstname>
+      <lastname>Wong</lastname>
+	  <program>CPA</program>
+      <gpa>4.0</gpa>
+   </student>
+</class>

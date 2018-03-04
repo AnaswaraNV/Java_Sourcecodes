@@ -1,0 +1,150 @@
+﻿CJV805 Assignment 1 – Winter 2018
+
+Assignment Submission Form
+========================================================================== I/we declare that
+the attached assignment is my/our own work in accordance with Seneca Academic Policy. No part of this assignment has been
+copied manually or electronically from any other source (including web sites) or distributed to other students.
+
+Name(s) 			Student ID(s) 	Seneca LearnID(s)
+
+Jonathan Chik 			147320162 	jchik3 			cjv805_181a09
+--------------------------------------------------------------------------
+
+Anaswara Naderi Vadakkpeperatta 133085167 	anaderi-vadakkeperat 	cjv805_181a09
+--------------------------------------------------------------------------
+
+Properties File
+	All the parameters related to the database are mentioned here. 
+	Such as user name, password, driver details
+**************************************************************************	
+package : ca.myseneca.model 
+
+DBUtil.java
+This class uses the properties from properties file and establish connection with database
+This also display SQLEXceptions, SQL warnings, Batch update Warnings and Exceptions caused during execution if any to the user.
+
+//Get connection variables from properties file and define connection Object
+	public Connection getConnection() throws SQLException, ClassNotFoundException 
+	
+	return connectionObject;
+	
+//Display All SQL warnings to user with detailed info such as state, error code etc
+	public static void printWarnings(SQLWarning warning) throws SQLException
+	
+
+//Display SQL Exceptions to user with detailed info such as state, error code, cause etc
+	public static void printSQLException(SQLException ex)
+
+//Display if any Batch update Exception occurs (A count is also displayed)
+	public static void printBatchUpdateException(BatchUpdateException b)
+
+//close Connection Object
+	public static void closeConenction(Connection connectionObject) throws SQLException
+**************************************************************************	
+package : ca.myseneca.model 
+DAManager.java
+
+The DAManager.java is a data access manager class provides the interface that is used to
+manipulate data in the database without exposing details of the database. The bean of
+Employee class is requested to be used in the data operations for the Employees table.
+The code of loading the properties file, setting up JDBC connection is not allowed in the
+class. 
+
+The DAManager class includes the following methods:
+
+The security method for user login:
+public static int getEmployeeID(String user, String password);
+
+Get employee Id by calling PL/SQL fucntion F_SECURITY  in the P_SECURITY
+package; 
+The method will return a 0 value for unauthorized user. 
+
+The methods of CRUD (create, read, update and delete) operations for the Employees
+tables.
+public static void addEmployee(Employe emp); public
+static ArrayList<Employe> getAllEmployees();
+ public static ArrayList<Employe>
+ getEmployeesByDepartmentID (int depid);
+public static Employee getEmployeeByID(int empid); 
+To implement the getEmployeeID method, call the stored
+procedure P_EMP_INFO in the P_SECURITY package.
+
+public static int updateEmployee(Employee emp); 
+public static int deleteEmployeeByID(int
+empid); 
+
+The batch update method:
+public static boolean batchUpdate(String[] SQLs);
+ The batch update should be executed inside a transaction to make sure that
+either all updates are executed or none are. Any successful updates can be
+rolled back, in case of the update fail. 
+
+
+**************************************************************************
+package : ca.myseneca.model 
+Employee.java
+
+This is a java bean class containing employee related Contents. 
+**************************************************************************
+package:ca.myseneca.test
+HRManagement.java
+
+The HRManagement class is a test class that mimics an application. 
+  Prompt user input a user name and a password from the console. 
+  If pass the credential check, show the user’s info as employee. 
+**************************************************************************
+					RMI Implementation 
+					
+package:ca.mysneca.rmi.server
+DAInterface
+
+An interface which contains all the declaration for the functions 
+All functions are similar to DAManager.java
+
+**************************************************************************
+package:ca.mysneca.rmi.server
+DAInterfaceImpl
+
+An implementation class containing definitions for the interface.
+the RMI implementation invoking the methods in the data access layer (the code
+in ca.myseneca.model package)
+
+**************************************************************************
+package:ca.mysneca.rmi.server
+HRManagementServer
+
+A server class to create the RMI registry service
+
+**************************************************************************
+package:ca.mysneca.rmi.client
+HRManagementClient
+
+A client class mimicking an RMI application. Similar to HRManagement class. 
+
+**************************************************************************
+
+Testing : 
+
+First enter user name and password. 
+If successful user , all the functions with static input will run by itself.
+Press enter after each functionalities. 
+If invalid user, Program will exit. 
+
+
+**************************************************************************
+
+Running: 
+For the first part, run HRManagement.java which is the test program.
+First enter user name and password. 
+If successful user , all the functions with static input will run by itself.
+Press enter after each functionalities. 
+If invalid user, Program will exit. 
+
+RMI , run HRManagementServer.java first then HRManagementClient.java . 
+
+in client, 
+First enter user name and password. 
+If successful user , all the functions with static input will run by itself.
+Press enter after each functionalities. 
+If invalid user, Program will exit. 
+ 

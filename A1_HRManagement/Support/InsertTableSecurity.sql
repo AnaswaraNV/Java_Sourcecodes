@@ -1,0 +1,3 @@
+INSERT INTO SECURITY VALUES(201, 'servlet', 'servlet','I');
+INSERT INTO SECURITY VALUES(202, 'java','java', 'I');
+INSERT INTO SECURITY VALUES(203, 'hr', 'hr','A');
